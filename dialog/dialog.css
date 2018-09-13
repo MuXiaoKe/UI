@@ -1,0 +1,330 @@
+/* dialog css 样式 */
+
+.mdialog-layer {
+	position: relative;
+	z-index: 19891026;
+}
+.mdialog-layer * {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+.mdialog-layershade,
+.mdialog-layermain {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.mdialog-layershade {
+	background-color: rgba(0, 0, 0, 0.7);
+	pointer-events: auto;
+}
+.mdialog-layermain {
+	display: table;
+	font-family: Helvetica, arial, sans-serif;
+	pointer-events: none;
+}
+.mdialog-layermain .mdialog-layersection {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.mdialog-layerchild {
+	position: relative;
+	display: inline-block;
+	text-align: left;
+	background-color: #fff;
+	font-size: 14px;
+	border-radius: 5px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+	pointer-events: auto;
+	-webkit-overflow-scrolling: touch;
+}
+.mdialog-layerchild {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-duration: 0.2s;
+	animation-duration: 0.2s;
+}
+
+/* 弹出动画 */
+@-webkit-keyframes mdialog-anim-scale {
+	/* 默认 */
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+@keyframes mdialog-anim-scale {
+	/* 默认 */
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+.mdialog-anim-scale {
+	animation-name: mdialog-anim-scale;
+	-webkit-animation-name: mdialog-anim-scale;
+}
+
+@-webkit-keyframes mdialog-anim-up {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(800px);
+		transform: translateY(800px);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+}
+@keyframes mdialog-anim-up {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(800px);
+		transform: translateY(800px);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+}
+.mdialog-anim-up {
+	-webkit-animation-name: mdialog-anim-up;
+	animation-name: mdialog-anim-up;
+}
+
+.mdialog-layer0 .mdialog-layerchild {
+	width: 90%;
+	max-width: 640px;
+}
+.mdialog-layer1 .mdialog-layerchild {
+	border: none;
+	border-radius: 0;
+}
+.mdialog-layer2 .mdialog-layerchild {
+	width: auto;
+	max-width: 260px;
+	min-width: 40px;
+	border: none;
+	background: none;
+	box-shadow: none;
+	color: #fff;
+}
+.mdialog-layerchild h3 {
+	padding: 0 10px;
+	height: 60px;
+	line-height: 60px;
+	font-size: 16px;
+	font-weight: 400;
+	border-radius: 5px 5px 0 0;
+	text-align: center;
+}
+.mdialog-layerchild h3,
+.mdialog-layerbtn span {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.mdialog-layercont {
+	padding: 50px 30px;
+	line-height: 22px;
+	text-align: center;
+}
+.mdialog-layer1 .mdialog-layercont {
+	padding: 0;
+	text-align: left;
+}
+.mdialog-layer2 .mdialog-layercont {
+	text-align: center;
+	padding: 0;
+	line-height: 0;
+}
+.mdialog-layer2 .mdialog-layercont i {
+	width: 25px;
+	height: 25px;
+	margin-left: 8px;
+	display: inline-block;
+	background-color: #fff;
+	border-radius: 100%;
+}
+.mdialog-layer2 .mdialog-layercont p {
+	margin-top: 20px;
+}
+
+/* loading */
+@-webkit-keyframes mdialog-anim-loading {
+	0%,
+	80%,
+	100% {
+		transform: scale(0);
+		-webkit-transform: scale(0);
+	}
+	40% {
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+}
+@keyframes mdialog-anim-loading {
+	0%,
+	80%,
+	100% {
+		transform: scale(0);
+		-webkit-transform: scale(0);
+	}
+	40% {
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+}
+.mdialog-layer2 .mdialog-layercont i {
+	-webkit-animation: mdialog-anim-loading 1.4s infinite ease-in-out;
+	animation: mdialog-anim-loading 1.4s infinite ease-in-out;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+.mdialog-layer2 .mdialog-layercont i:first-child {
+	margin-left: 0;
+	-webkit-animation-delay: -0.32s;
+	animation-delay: -0.32s;
+}
+.mdialog-layer2 .mdialog-layercont i.mdialog-layerload {
+	-webkit-animation-delay: -0.16s;
+	animation-delay: -0.16s;
+}
+.mdialog-layer2 .mdialog-layercont > div {
+	line-height: 22px;
+	padding-top: 7px;
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+.mdialog-layerbtn {
+	display: box;
+	display: -moz-box;
+	display: -webkit-box;
+	width: 100%;
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+	font-size: 0;
+	text-align: center;
+	border-top: 1px solid #d0d0d0;
+	background-color: #f2f2f2;
+	border-radius: 0 0 5px 5px;
+}
+.mdialog-layerbtn span {
+	position: relative;
+	display: block;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	-webkit-box-flex: 1;
+	text-align: center;
+	font-size: 14px;
+	border-radius: 0 0 5px 5px;
+	cursor: pointer;
+}
+.mdialog-layerbtn span[yes] {
+	color: #40affe;
+}
+.mdialog-layerbtn span[no] {
+	border-right: 1px solid #d0d0d0;
+	border-radius: 0 0 0 5px;
+}
+.mdialog-layerbtn span:active {
+	background-color: #f6f6f6;
+}
+.mdialog-layerend {
+	position: absolute;
+	right: 7px;
+	top: 10px;
+	width: 30px;
+	height: 30px;
+	border: 0;
+	font-weight: 400;
+	background: transparent;
+	cursor: pointer;
+	-webkit-appearance: none;
+	font-size: 30px;
+}
+.mdialog-layerend::before,
+.mdialog-layerend::after {
+	position: absolute;
+	left: 5px;
+	top: 15px;
+	content: "";
+	width: 18px;
+	height: 1px;
+	background-color: #999;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	border-radius: 3px;
+}
+.mdialog-layerend::after {
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+/* 底部对话框风格 */
+body .mdialog-layer .mdialog-layer-footer {
+	position: fixed;
+	width: 95%;
+	max-width: 100%;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	bottom: 10px;
+	background: none;
+}
+.mdialog-layer-footer .mdialog-layercont {
+	padding: 20px;
+	border-radius: 5px 5px 0 0;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+.mdialog-layer-footer .mdialog-layerbtn {
+	display: block;
+	height: auto;
+	background: none;
+	border-top: none;
+}
+.mdialog-layer-footer .mdialog-layerbtn span {
+	background-color: rgba(255, 255, 255, 0.8);
+}
+.mdialog-layer-footer .mdialog-layerbtn span[no] {
+	color: #fd482c;
+	border-top: 1px solid #c2c2c2;
+	border-radius: 0 0 5px 5px;
+}
+.mdialog-layer-footer .mdialog-layerbtn span[yes] {
+	margin-top: 10px;
+	border-radius: 5px;
+}
+
+/* 通用提示 */
+body .mdialog-layer .mdialog-layer-msg {
+	width: auto;
+	max-width: 90%;
+	margin: 0 auto;
+	bottom: -150px;
+	background-color: rgba(0, 0, 0, 0.7);
+	color: #fff;
+}
+.mdialog-layer-msg .mdialog-layercont {
+	padding: 10px 20px;
+}
