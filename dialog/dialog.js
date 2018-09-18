@@ -51,5 +51,12 @@
 
 			return '<div class="dialog-layerbtn">' + btndom + "</div>";
 		})();
+
+		if (!config.fixed) {
+			config.top = config.hasOwnProperty("top") ? config.top : 100;
+			config.style = config.style || "";
+			config.style +=
+				" top:" + (document.body.scrollTop + config.top) + "px";
+		}
 	};
 })(window);
