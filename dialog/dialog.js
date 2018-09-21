@@ -9,7 +9,7 @@
 		animate: "scale"
 	};
 	var dCommon = {
-		extend: function() {
+		extend: function(obj) {
 			var configcopy = JSON.parse(JSON.stringify(config));
 			for (var i in obj) {
 				configcopy[i] = obj[i];
@@ -23,7 +23,7 @@
 		defaultclass = ["mdialog-layer"],
 		Dialog = function(options) {
 			this.config = dCommon.extend(options);
-			this.htm();
+			this.render();
 		};
 	Dialog.prototype.render = function() {
 		config = this.config;
@@ -35,7 +35,6 @@
 			defaultclass[0] + " " + defaultclass[0] + (dCommon.type || 0)
 		);
 		dialogWrap.setAttribute("index", index);
-		var title = "<h3>" + config.title + "</h3>";
 
 		if (!config.fixed) {
 			config.top = config.hasOwnProperty("top") ? config.top : 100;
@@ -73,9 +72,12 @@
 			'" ' +
 			(config.style ? 'style="' + config.style + '"' : "") +
 			">" +
-			title +
+			(config.title ? "<h3>" + config.title + "</h3>" : "") +
 			'<div class="mdialog-layercont">' +
 			config.content +
+			"</div>" +
+			button +
+			"</div>" +
 			"</div>" +
 			"</div>";
 
@@ -105,6 +107,8 @@
 				dialog.close(that.index);
 			}, config.time * 1000);
 		}
+		//按钮 // TODO:增加按钮
+		var btn = function() {};
 		//遮罩关闭
 		if (config.shade && config.shadeClose) {
 			var shade = el.getElementsByClassName("mdialog-layershade")[0];
