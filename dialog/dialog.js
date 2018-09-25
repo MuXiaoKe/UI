@@ -36,6 +36,19 @@
 		);
 		dialogWrap.setAttribute("index", index);
 
+		//btn
+		var button = (function() {
+			if (!config.btn || config.btn.length === 0) {
+				return "";
+			}
+			var btndom = "";
+			var i = 0;
+			for (i; i < config.btn.length; i++) {
+				btndom = btndom + "<span>" + config.btn[i] + "</span>";
+			}
+			return '<div class="mdialog-layerbtn">' + btndom + "</div>";
+		})();
+
 		if (!config.fixed) {
 			config.top = config.hasOwnProperty("top") ? config.top : 100;
 			config.style = config.style || "";
@@ -107,8 +120,32 @@
 				dialog.close(that.index);
 			}, config.time * 1000);
 		}
-		//按钮 // TODO:增加按钮
-		var btn = function() {};
+		//按钮
+		var btn = function(serial, index) {
+			if (!config.btn || !config.btn1) {
+				return;
+			}
+			config["btn" + serial](index);
+		};
+
+		if (config.btn) {
+			var i = 0;
+			var len = config.btn.length;
+			var btns = document.getElementsByClassName("mdialog-layerbtn")[0]
+				.children;
+			for (i; i < len; i++) {
+				(function(serial) {
+					btns[serial].addEventListener(
+						"click",
+						function() {
+							btn(serial + 1, that.index);
+						},
+						false
+					);
+				})(i);
+			}
+		}
+
 		//遮罩关闭
 		if (config.shade && config.shadeClose) {
 			var shade = el.getElementsByClassName("mdialog-layershade")[0];

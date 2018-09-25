@@ -12,7 +12,10 @@
 
 <body>
     <button onclick="dialog.open({
-        content:'222'
+        content:'222',
+        btn:['aaa','bbb'],
+        btn1:function(){console.log('btn1')},
+        btn2:function(){console.log('btn2')}
     })">111</button>
 
 </body>
