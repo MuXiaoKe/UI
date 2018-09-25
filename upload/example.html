@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>file api test</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            let _src = '';
+            // let fileinput = document.getElementById('file')
+            // fileinput.addEventListener('change',function(event){
+            //     let _file = fileinput.files[0]
+            //     let reader = new FileReader()
+
+            //     reader.onload = function(evt){
+            //         console.log(evt.target.result)
+            //         let img =document.createElement('img')
+            //         _src = img.src = evt.target.result
+            //         document.body.appendChild(img)
+            //     }
+
+            //     reader.readAsDataURL(_file)
+            // })
+
+            let fileinput = document.getElementById('file');
+
+            fileinput.addEventListener('change', function (event) {
+                let _file = fileinput.files[0];
+                let img = document.createElement('img');
+                img.src = window.URL.createObjectURL(_file);
+                document.body.appendChild(img);
+            });
+
+        }
+    </script>
+</head>
+
+<body>
+    <input type="file" title="file" id="file" multiple="multiple">
+
+</body>
+
+</html>
