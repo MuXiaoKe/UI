@@ -145,7 +145,6 @@
 				})(i);
 			}
 		}
-
 		//遮罩关闭
 		if (config.shade && config.shadeClose) {
 			var shade = el.getElementsByClassName("mdialog-layershade")[0];
